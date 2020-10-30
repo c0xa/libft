@@ -6,25 +6,25 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:11:36 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 15:04:38 by tblink           ###   ########.fr       */
+/*   Updated: 2020/10/30 20:03:12 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *string)
+int    ft_atoi(const char *string)
 {
 	unsigned long int n;
 	int mark;
 
 	mark = 1;
 	n = 0;
-	while (*string == ' ' || *string == '\t' || *string == '\n' || *string == '\v'
-		|| *string == '\f' || *string == '\r')
+	while (*string == ' ' || *string == '\t' || *string == '\n'
+		|| *string == '\v' || *string == '\f' || *string == '\r')
 		string++;
 	if (*string == '-' || *string == '+')
 	{
-		if (*string == '-' )
+		if (*string == '-')
 			mark *= -1;
 		string++;
 	}
@@ -33,8 +33,8 @@ int		ft_atoi(const char *string)
 		n = n * 10 + *(string++) - '0';
 	}
 	if (n >= 9223372036854775807 && mark < 0)
-			return (0);
+		return (0);
 	else if (n >= 9223372036854775807)
-			return (-1);
+		return (-1);
 	return ((int)n * mark);
 }

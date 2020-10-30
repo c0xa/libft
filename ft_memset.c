@@ -6,13 +6,13 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 12:18:15 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 15:03:14 by tblink           ###   ########.fr       */
+/*   Updated: 2020/10/30 19:43:56 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char *p;
 	p = b;

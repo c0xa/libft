@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 17:43:29 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 19:42:47 by tblink           ###   ########.fr       */
+/*   Created: 2020/10/30 19:53:41 by tblink            #+#    #+#             */
+/*   Updated: 2020/10/30 21:30:50 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include "libft.h"
+
+char	*ft_strdup(const char *s1)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
+	int		len;
+	char	*buf;
+	int i;
+
+	i = 0;
+	len = ft_strlen(s1);
+	buf = (char*)malloc((len + 1) * sizeof(char));
+	if (!buf)
+		return (NULL);
+	while (s1[i])
 	{
-		return (1);
+		buf[i] = s1[i];
+		i++;
 	}
-	return (0);
+	buf[i] = '\0';
+	return (buf);
 }

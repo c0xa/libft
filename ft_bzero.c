@@ -6,20 +6,17 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 13:46:25 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 13:59:44 by tblink           ###   ########.fr       */
+/*   Updated: 2020/10/30 21:01:52 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char *p;
 
 	p = s;
-	while (n > 0)
-	{
+	while (n-- > 0)
 		*(p++) = 0;
-		n--;
-	}
 }
