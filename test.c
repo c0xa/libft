@@ -6,7 +6,7 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 19:02:04 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 13:11:34 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/01 19:20:14 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@
 #include "ft_strrchr.c"
 #include "ft_strlcpy.c"
 #include "ft_strlcat.c"
-// #include "ft_memset.c"
+#include "ft_substr.c"
+#include "ft_strjoin.c"
+#include "ft_strtrim.c"
+#include "ft_itoa.c"
+#include "ft_strdup.c"
 
 
 int main()
@@ -249,5 +253,44 @@ int main()
 	printf("%s\n", "-----------------");
 	printf("%s\n", "memset");
 	printf("%s\n", "-----------------");
+	printf("%s\n", "substr");
+	printf("%s\n", ft_substr("lorem ipsum dolor sit amet", 0, 10));
+	printf("%s\n", ft_substr("lorem ipsum dolor sit amet", 7, 10));
+	printf("%s\n", ft_substr("lorem ipsum dolor sit amet", 7, 0));
+	printf("%s\n", ft_substr("lorem ipsum dolor sit amet", 0, 0));
+	printf("%s\n", "-----------------");
+	printf("%s\n", "strjoin");
+	printf("%s\n", ft_strjoin("12341", "24"));
+	printf("%s\n", ft_strjoin("11111", "222222"));
+	printf("%s\n", ft_strjoin("12341", ""));
+	printf("%s\n", ft_strjoin("", "1"));
+	printf("%s\n", "-----------------");
+	printf("%s\n", "strtrim");
+	//printf("\n%s\n", ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", "\t \n"));
+	printf("\n%s\n", ft_strtrim("11111", "1"));
+	printf("\n%s\n", ft_strtrim("12341", "8"));
+	printf("\n%s\n", ft_strtrim("1112", "1"));
+	printf("\n%s\n", "-----------------");
+	printf("%s\n", "itoa");
+	printf("%s ", ft_itoa(0));
+	printf("%s\n", "0");
+	printf("%s ", ft_itoa(10));
+	printf("%s\n", "10");
+	printf("%s ", ft_itoa(-10));
+	printf("%s\n", "-0");
+	printf("%s ", ft_itoa(8124));
+	printf("%s\n", "8124");
+	printf("%s ", ft_itoa(-9874));
+	printf("%s\n", "-9874");
+	printf("%s ", ft_itoa(-12341));
+	printf("%s\n", "-12341");
+	printf("%s ", ft_itoa(543000));
+	printf("%s\n", "543000");
+	printf("%s ", ft_itoa(-12341));
+	printf("%s\n", "-12341");
+	printf("%s ", ft_itoa(2147483647));
+	printf("%s\n", "2147483647");
+	printf("%s ", ft_itoa(-2147483648LL));
+	printf("%s\n", "2147483647");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:08:23 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 19:43:16 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/01 17:24:29 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char *d;
-	unsigned char *s;
-	size_t i;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
 	i = 0;
 	d = (unsigned char*)dst;

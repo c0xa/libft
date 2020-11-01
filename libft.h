@@ -6,7 +6,7 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:31:03 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 21:19:10 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/01 18:58:29 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,13 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-char	        *ft_calloc(size_t count, size_t size);
+char				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *str);
-
+char				*ft_substr(char const *s, unsigned int start,
+					size_t len);
+char				*ft_substr(char const *s, unsigned int start,
+					size_t len);
+char				*ft_strtrim(char const *s1, char const *set);
+char				**ft_split(char const *s, char c);
+char				*ft_itoa(int n);
 #endif

@@ -1,32 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 19:53:41 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/01 17:26:59 by tblink           ###   ########.fr       */
+/*   Created: 2020/11/01 14:13:13 by tblink            #+#    #+#             */
+/*   Updated: 2020/11/01 14:46:02 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+# include <unistd.h>
 
-char	*ft_strdup(const char *s1)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		len;
+	size_t	len1;
 	char	*buf;
 	int		i;
+	int		mark;
+	int		j;
 
 	i = 0;
-	len = ft_strlen(s1);
-	buf = (char*)malloc((len + 1) * sizeof(char));
-	if (!buf)
+	j = 0;
+	mark = 1;
+	len1 = ft_strlen(s1);
+	if (!(buf = (char*)malloc((len1 + 1) * sizeof(char))))
 		return (NULL);
-	while (s1[i])
+	while (*s1)
 	{
-		buf[i] = s1[i];
-		i++;
+	//printf("buf= %c \n", s1[i]);
+		j = 0;
+		mark = 1;
+		while (set[j])
+		{
+			//printf("s1= %c  set =  %c\n", s1[i], set[j]);
+			if (*s1 == set[j++])
+			{
+				mark = 0;
+				//printf("mark %d\n", mark);
+			}
+		}
+		if (mark)
+			buf[i++] = *s1;
+		//printf("finish buf= %c \n", buf[i]);
+		s1++;
 	}
 	buf[i] = '\0';
 	return (buf);

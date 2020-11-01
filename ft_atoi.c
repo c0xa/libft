@@ -6,16 +6,16 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:11:36 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 20:03:12 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/01 17:23:02 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int    ft_atoi(const char *string)
+int		ft_atoi(const char *string)
 {
-	unsigned long int n;
-	int mark;
+	unsigned long int	n;
+	int					mark;
 
 	mark = 1;
 	n = 0;

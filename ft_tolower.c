@@ -6,11 +6,11 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 16:23:56 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/29 18:59:39 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/01 17:27:46 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int		ft_tolower(int c)
 {
 	if (c > 64 && c < 91)
 		return (c + 32);

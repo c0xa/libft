@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 14:32:03 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/01 17:25:14 by tblink           ###   ########.fr       */
+/*   Created: 2020/11/01 14:50:47 by tblink            #+#    #+#             */
+/*   Updated: 2020/11/01 16:32:13 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+/*char **ft_ssplit(char const *s, char c)
 {
-	size_t			i;
-	unsigned char	*c1;
-	unsigned char	*c2;
+	size_t	len1;
+	char	*buf;
+	int		i;
+	int		j;
+	int		k;
 
 	i = 0;
-	c1 = (unsigned char*)s1;
-	c2 = (unsigned char*)s2;
-	if (n == 0)
-		return (0);
-	while (c1[i] == c2[i] && i < n)
+	j = 0;
+	k = 0;
+	len1 = ft_strlen(s);
+    if (!(buf = (char**)malloc(len1 * sizeof(char*))))
+		return (NULL);
+    while (*s)
 	{
-		i++;
-		if (i == n)
-			return (0);
-	}
-	return ((int)(c1[i] - c2[i]));
+		j = 0;
+		if (*s == c)
+			while (*s + (k++) != c)
+		buf[i] = (char*)malloc(k + 1 * sizeof(char));
+		while (k--)
+		{
+			buf[i][j++] = *s--;
+		}
+
+  	}
+
+	}	
+
+	buf[i] = '\0';
+	return (buf);
 }
+}
+*/
