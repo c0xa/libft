@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 15:32:43 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/02 21:08:55 by tblink           ###   ########.fr       */
+/*   Created: 2020/11/02 21:35:32 by tblink            #+#    #+#             */
+/*   Updated: 2020/11/02 22:05:19 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		size(int digit)
+/*size_t		sizen(int digit)
 {
 	int len;
 
@@ -27,28 +27,39 @@ size_t		size(int digit)
 	return (len);
 }
 
-char		*ft_itoa(int num)
+void		ft_putnbr_fd(int n, int fd)
 {
-	char		*buf;
-	size_t		len;
 	long int	digit;
+	size_t		len;
+	int			k;
 
-	len = size(num);
-	digit = num;
-	len += (digit < 0 ? 1 : 0);
-	if (digit < 0)
+	digit = n;
+	k = 1;
+	len = sizen(digit);
+	if (n < 0)
 	{
+		write(fd, "-", 1);
 		digit *= -1;
 	}
-	if (!(buf = (char*)malloc(len + 1 * (sizeof(char)))))
-		return (NULL);
-	*(buf + len) = '\0';
+	while (len--)
+		k *= 10;
+	len = sizen(digit);
 	while (len--)
 	{
-		*(buf + len) = digit % 10 + 48;
-		digit /= 10;
+		write(fd, (char *)(digit / k + 48), 1);
+		digit %= k;
 	}
-	if (buf[0] == '0' && num != 0)
-		buf[0] = '-';
-	return (buf);
+}
+*/
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	char *s;
+
+	s = ft_itoa(n);
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
 }

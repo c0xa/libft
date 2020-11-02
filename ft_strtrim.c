@@ -6,46 +6,37 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:13:13 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/01 14:46:02 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:52:45 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-# include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s, char const *set)
 {
-	size_t	len1;
-	char	*buf;
-	int		i;
-	int		mark;
-	int		j;
+	char			*buf;
+	char			*start;
+	char			*end;
+	int				i;
 
 	i = 0;
-	j = 0;
-	mark = 1;
-	len1 = ft_strlen(s1);
-	if (!(buf = (char*)malloc((len1 + 1) * sizeof(char))))
+	if (!s)
 		return (NULL);
-	while (*s1)
-	{
-	//printf("buf= %c \n", s1[i]);
-		j = 0;
-		mark = 1;
-		while (set[j])
-		{
-			//printf("s1= %c  set =  %c\n", s1[i], set[j]);
-			if (*s1 == set[j++])
-			{
-				mark = 0;
-				//printf("mark %d\n", mark);
-			}
-		}
-		if (mark)
-			buf[i++] = *s1;
-		//printf("finish buf= %c \n", buf[i]);
-		s1++;
-	}
+	while (*s && ft_strchr(set, *s))
+		s++;
+	start = (char *)s;
+	while (*s)
+		s++;
+	s--;
+	while (s > start && ft_strchr(set, *s))
+		s--;
+	end = (char *)s;
+	if (!(buf = (char*)malloc((end - start + 2) * sizeof(char))))
+		return (NULL);
+	while (start <= end)
+		buf[i++] = *start++;
 	buf[i] = '\0';
 	return (buf);
 }

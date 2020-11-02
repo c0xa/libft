@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 19:18:13 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/01 20:38:45 by tblink           ###   ########.fr       */
+/*   Created: 2020/11/02 21:33:32 by tblink            #+#    #+#             */
+/*   Updated: 2020/11/02 21:34:54 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t			j;
-	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
-
-	d = (unsigned char*)dst;
-	s = (unsigned char*)src;
-	j = 0;
-	i = 0;
-	if (!d || !s)
-		return (0);
-	while (s[j])
-		j++;
-	if (dstsize == 0)
-		return (j);
-	while (i < dstsize - 1 && s[i])
+	if (!s)
+		return ;
+	while (*s)
 	{
-		d[i] = s[i];
-		i++;
+		write(fd, s, 1);
+		s++;
 	}
-	d[i] = '\0';
-	return (j);
+	write(fd, "\n", 1);
 }
