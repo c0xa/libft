@@ -6,7 +6,7 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 21:33:32 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/02 21:34:54 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/03 14:47:20 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)
+		return ;
+	if (fd < 0)
 		return ;
 	while (*s)
 	{
