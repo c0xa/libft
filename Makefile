@@ -35,41 +35,6 @@ SRCS =	ft_memset.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c
 
-OUT = 	ft_memset.o\
-		ft_bzero.o\
-		ft_memcpy.o\
-		ft_memccpy.o\
-		ft_memmove.o\
-		ft_memchr.o\
-		ft_memcmp.o\
-		ft_strlen.o\
-		ft_strlcpy.o\
-		ft_strlcat.o\
-		ft_strchr.o\
-		ft_strrchr.o\
-		ft_strnstr.o\
-		ft_strncmp.o\
-		ft_atoi.o\
-		ft_isalpha.o\
-		ft_isdigit.o\
-		ft_isalnum.o\
-		ft_isascii.o\
-		ft_isprint.o\
-		ft_toupper.o\
-		ft_tolower.o\
-		ft_calloc.o\
-		ft_strdup.o\
-		ft_strjoin.o\
-		ft_substr.o\
-		ft_strtrim.o\
-		ft_split.o\
-		ft_itoa.o\
-		ft_strmapi.o\
-		ft_putchar_fd.o\
-		ft_putstr_fd.o\
-		ft_putendl_fd.o\
-		ft_putnbr_fd.o\
-
 SRCSBON = 	ft_lstnew.c\
 			ft_lstadd_front.c\
 			ft_lstsize.c\
@@ -91,18 +56,24 @@ OBJBON = 	ft_lstnew.o\
 			ft_lstiter.o\
 			ft_lstmap.o\
 			
+ifndef WITH_BONUS
+OUT = $(SRCS:.c=.o)
+else
+OUT = $(SRCS:.c=.o) $(SRCSBON:.c=.o)
+endif
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wall -Wextra -Werror -c $(SRCS) -I 
-	ar rc $(NAME) $(OUT)
+$(NAME): $(OUT)
+	ar rc $(NAME) $^
 	ranlib $(NAME)
 
-bonus: 		
-	gcc -Wall -Wextra -Werror -c $(SRCSBON) -I
-	ar rc $(NAME) $(OUT) $(OBJBON)
-	ranlib $(NAME)
+%.o: %.c
+	gcc -Wall -Wextra -Werror -c $< -I
+
+bonus:
+	$(MAKE) WITH_BONUS=true
+
 
 clean:
 	rm -f $(OUT) $(OBJBON)
