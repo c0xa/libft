@@ -1,0 +1,75 @@
+int		countc(char const *s, char c)
+{
+	int t;
+	int i;
+
+	t = 0;
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		if (s[i] != c && s[i])
+			t++;
+		while (s[i] != c && s[i])
+			i++;
+	}
+	return (t);
+}
+
+void		*ft_clean(char **arr, size_t words)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < words)
+		free(arr[i]);
+	free(arr);
+	return (NULL);
+}
+
+int		split(char const *s, char c)
+{
+	int		i;
+	int		len;
+
+	i = 0;
+	len = 0;
+	while (s[i] == c)
+		i++;
+	while (s[i] != c && s[i])
+	{
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int	w;
+	int	i;
+	int	j;
+	char	**arr;
+
+	i = 0;
+	w = -1;
+	if (!s || !c || !(arr = (char**)malloc(sizeof(char*) * (countc(s, c) + 1))))
+		return (NULL);
+	while (++w < countc(s, c))
+	{
+		j = 0;
+		if (!(arr[w] = (char*)malloc(sizeof(char) * (split(&s[i], c) + 1))))
+		{
+			ft_clean(arr, i);
+			return (NULL);
+		}
+		while (s[i] == c)
+			i++;
+		while (s[i] != c && s[i])
+			arr[w][j++] = s[i++];
+		arr[w][j] = '\0';
+	}
+	arr[w] = NULL;
+	return (arr);
+}

@@ -6,7 +6,7 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:50:47 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/03 17:27:29 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/05 03:42:54 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,78 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-int		countc(char *s, char c)
+int		count(char const *s, char c)
 {
-	int t;
+	int len;
+	int i;
 
-	t = 0;
-	while (*s)
+	len = 0;
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c)
-			t++;
-		s++;
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i])
+			len++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	printf("t = %d\n", t);
-	if (s[0] == c)
-		t--;
-	if (*(s - 1) == c)
-		t++;
-	return (t);
+	return (len);
 }
 
-char		**ft_split(char const *s, char c)
+void	*ft_clean(char **arr, int count)
 {
-	int				len1;
-	char			**buf;
-	char			*p;
-	char			*start;
-	char			*end;
+	int	i;
 
-	p = (char *)s;
-	len1 = countc(p, c);
-	printf("len = %d\n", len1);
-	if (!(buf = (char**)malloc(len1 + 1 * sizeof(char*))))
-		return (NULL);
-	start = (char*)s;
-	while (*s && --len1)
-	{
-		while (!(end = ft_strchr(s, c)))
-			s++;
-		end++;
-		start = end;
-		end++;
-		s++;
-	}
+	i = -1;
+	while (++i < count)
+		free(arr[i]);
+	free(arr);
 	return (NULL);
 }
-*/
+
+int		split(char const *s, char c)
+{
+	int		i;
+	int		len;
+
+	i = 0;
+	len = 0;
+	while (s[i] == c && s[i])
+		i++;
+	while (s[i] != c && s[i])
+	{
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		b;
+	int		i;
+	int		j;
+	char	**buf;
+
+	i = 0;
+	b = -1;
+	if (!s || !c || !(buf = (char**)malloc(sizeof(char*) * (count(s, c) + 1))))
+		return (NULL);
+	while (++b < count(s, c))
+	{
+		j = 0;
+		if (!(buf[b] = (char*)malloc(sizeof(char) * (split(&s[i], c) + 1))))
+		{
+			ft_clean(buf, b);
+			return (NULL);
+		}
+		while (s[i] == c && s[i])
+			i++;
+		while (s[i] != c && s[i])
+			buf[b][j++] = s[i++];
+		buf[b][j] = '\0';
+	}
+	buf[b] = NULL;
+	return (buf);
+}
