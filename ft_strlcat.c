@@ -6,7 +6,7 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 21:22:11 by tblink            #+#    #+#             */
-/*   Updated: 2020/10/30 19:13:42 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/06 18:37:18 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,18 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	j = 0;
 	i = 0;
 	len = 0;
-	while (dst[j])
-		j++;
-	while (src[len])
-		len++;
+	j = ft_strlen(dst);
+	len = ft_strlen(src);
+	if (size < j)
+		return (size + len);
+	if (size < j)
+		return (size + j);
 	if (size <= j)
 		len += size;
 	else
 		len += j;
-	while (j + 1 < size && src[i])
-	{
-		dst[j] = src[i];
-		i++;
-		j++;
-	}
+	while (src[i] && j + 1 < size)
+		dst[j++] = src[i++];
 	dst[j] = '\0';
 	return (len);
 }
