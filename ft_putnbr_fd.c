@@ -6,13 +6,13 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 21:35:32 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/03 15:05:18 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:37:41 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		sizen(int digit)
+static size_t		sizen(int digit)
 {
 	size_t len;
 
@@ -27,7 +27,7 @@ size_t		sizen(int digit)
 	return (len);
 }
 
-void		ft_putnbr_fd(int num, int fd)
+void				ft_putnbr_fd(int num, int fd)
 {
 	size_t		len;
 	long int	digit;

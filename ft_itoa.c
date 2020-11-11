@@ -6,13 +6,13 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 15:32:43 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/03 13:50:33 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:36:49 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		size(int digit)
+static size_t		size(int digit)
 {
 	size_t len;
 
@@ -27,7 +27,7 @@ size_t		size(int digit)
 	return (len);
 }
 
-char		*ft_itoa(int num)
+char				*ft_itoa(int num)
 {
 	char		*buf;
 	size_t		len;

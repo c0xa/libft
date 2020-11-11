@@ -6,13 +6,11 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:13:13 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/02 18:52:45 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:21:16 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 char		*ft_strtrim(char const *s, char const *set)
 {

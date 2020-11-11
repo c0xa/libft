@@ -6,28 +6,37 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 18:39:47 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/01 18:40:25 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/09 17:19:58 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static int	ft_min(int a, int b)
+{
+	return (a < b ? a : b);
+}
+
+char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*buf;
 	int		i;
+	int		lenresult;
 
-	i = 0;
-	if (!s || (buf = (char*)malloc((len + 1) * sizeof(char))) == NULL)
+	if (!s)
 		return (NULL);
+	i = 0;
 	if (start > ft_strlen(s))
 		return (ft_strdup(""));
-	while (*(s + i + start) && len--)
+	lenresult = ft_min((int)len, (int)(ft_strlen(s) - start));
+	lenresult = lenresult < 0 ? 0 : lenresult;
+	if (!(buf = (char*)malloc((len + 1) * sizeof(char))))
+		return (NULL);
+	while (lenresult--)
 	{
 		*(buf + i) = *(s + i + start);
 		i++;
 	}
 	*(buf + i) = '\0';
-	i = 0;
 	return (buf);
 }

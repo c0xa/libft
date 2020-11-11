@@ -6,7 +6,7 @@
 /*   By: tblink <tblink@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 21:11:36 by tblink            #+#    #+#             */
-/*   Updated: 2020/11/01 17:23:02 by tblink           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:19:42 by tblink           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int		ft_atoi(const char *string)
 	}
 	while (*string >= '0' && *string <= '9')
 	{
+		if (n >= 9223372036854775807 && mark < 0)
+			return (0);
+		else if (n >= 9223372036854775807)
+			return (-1);
 		n = n * 10 + *(string++) - '0';
 	}
-	if (n >= 9223372036854775807 && mark < 0)
-		return (0);
-	else if (n >= 9223372036854775807)
-		return (-1);
 	return ((int)n * mark);
 }
